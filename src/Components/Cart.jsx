@@ -4,7 +4,8 @@ import { useCart } from "../Components/CartContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
-  const { cartItems, setCartItems, removeFromCart } = useCart();
+const { cartItems, removeFromCart, updateQuantity } = useCart();
+
   const navigate = useNavigate();
 
   const formatCurrency = (amount) =>
@@ -13,11 +14,8 @@ export default function Cart() {
       currency: "USD",
     });
 
-  const updateQuantity = (index, delta) => {
-    const updated = [...cartItems];
-    updated[index].quantity = Math.max(1, updated[index].quantity + delta);
-    setCartItems(updated);
-  };
+  
+
 
   const getTotal = () =>
     cartItems.reduce(
