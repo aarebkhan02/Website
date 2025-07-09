@@ -15,10 +15,10 @@ export default function About() {
       <div className='mt-20'></div>
 
       {/* Section 1: Our Story */}
-      <section className="py-14">
-        <div className='container max-w-7xl mx-auto px-4'>
+      <section className="py-14 px-4 sm:px-6">
+        <div className='max-w-7xl mx-auto'>
           <h1
-            className='text-center text-5xl font-extrabold mb-12 text-[#0F3D3E]'
+            className='text-center text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10 text-[#0F3D3E]'
             data-aos="fade"
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
@@ -27,21 +27,21 @@ export default function About() {
 
           <div className='flex flex-col md:flex-row items-center gap-10'>
             <div
-              className='md:w-1/2 bg-gradient-to-br from-[#0F3D3E] to-[#14532d] p-8 rounded-3xl shadow-2xl'
+              className='w-full md:w-1/2 bg-gradient-to-br from-[#0F3D3E] to-[#14532d] p-6 md:p-8 rounded-3xl shadow-2xl'
               data-aos="fade-right"
             >
               <p
-                className='text-[20px] text-[#E8F5E9] leading-relaxed'
+                className='text-base sm:text-lg md:text-xl text-[#E8F5E9] leading-relaxed'
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis tempore numquam excepturi architecto pariatur similique commodi deleniti eius consectetur corrupti dignissimos repudiandae ea quis quia officiis, doloremque minima maxime? Facilis.
-                Sit harum officiis magni vel nemo, illum amet doloribus voluptatibus numquam fugit ea id iusto distinctio? Nihil fuga esse eveniet! Et assumenda eum dolores maxime veniam dolorem nihil ipsa ea.
-                Commodi placeat, voluptatem nemo quas corporis magni possimus vero hic voluptas corrupti saepe fuga neque incidunt repellendus consequatur perferendis ipsam quisquam soluta sequi. Culpa quisquam dignissimos repellendus. Error, veritatis sit.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis tempore numquam
+                excepturi architecto pariatur similique commodi deleniti eius consectetur corrupti
+                dignissimos repudiandae ea quis quia officiis, doloremque minima maxime? Facilis.
               </p>
             </div>
 
-            <div className='md:w-1/2 flex justify-center' data-aos="fade-left">
-              <div className="w-[90%] h-[300px] bg-[#D1FAE5] rounded-3xl shadow-2xl flex items-center justify-center text-[#0F3D3E] text-2xl font-semibold">
+            <div className='w-full md:w-1/2 flex justify-center' data-aos="fade-left">
+              <div className="w-full max-w-md h-[250px] sm:h-[300px] bg-[#D1FAE5] rounded-3xl shadow-2xl flex items-center justify-center text-[#0F3D3E] text-xl sm:text-2xl font-semibold">
                 Image
               </div>
             </div>
@@ -49,11 +49,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* Section 2 */}
-      <section className="py-14">
-        <div className='container max-w-7xl mx-auto px-4'>
+      {/* Section 2: About */}
+      <section className="py-14 px-4 sm:px-6">
+        <div className='max-w-7xl mx-auto'>
           <h1
-            className='text-center text-5xl font-extrabold mb-12 text-[#0F3D3E]'
+            className='text-center text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10 text-[#0F3D3E]'
             data-aos="fade"
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
@@ -61,21 +61,22 @@ export default function About() {
           </h1>
 
           <div className='flex flex-col md:flex-row items-center gap-10'>
-            <div className='md:w-1/2 flex justify-center' data-aos="fade-right">
-              <div className="w-[90%] h-[300px] bg-[#D1FAE5] rounded-3xl shadow-2xl flex items-center justify-center text-[#0F3D3E] text-2xl font-semibold">
+            <div className='w-full md:w-1/2 flex justify-center' data-aos="fade-right">
+              <div className="w-full max-w-md h-[250px] sm:h-[300px] bg-[#D1FAE5] rounded-3xl shadow-2xl flex items-center justify-center text-[#0F3D3E] text-xl sm:text-2xl font-semibold">
                 Image
               </div>
             </div>
             <div
-              className='md:w-2/3 bg-gradient-to-br from-[#14532d] to-[#0F3D3E] p-8 rounded-3xl shadow-2xl'
+              className='w-full md:w-1/2 bg-gradient-to-br from-[#14532d] to-[#0F3D3E] p-6 md:p-8 rounded-3xl shadow-2xl'
               data-aos="fade-left"
             >
               <p
-                className='text-[20px] leading-relaxed text-[#E8F5E9]'
+                className='text-base sm:text-lg md:text-xl leading-relaxed text-[#E8F5E9]'
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate odit voluptatum veniam accusamus quia quidem, inventore autem iste iusto corrupti, vel dolore natus libero. Perferendis temporibus quo nostrum adipisci dolor!
-                Molestiae animi architecto dolor adipisci eum corrupti repellendus consequuntur aspernatur accusantium cumque voluptas facere excepturi vero, nam atque provident? Animi consectetur obcaecati quam minima sint reprehenderit! Iusto veritatis rem aliquam.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate odit voluptatum
+                veniam accusamus quia quidem, inventore autem iste iusto corrupti, vel dolore natus
+                libero. Perferendis temporibus quo nostrum adipisci dolor!
               </p>
             </div>
           </div>
@@ -83,10 +84,10 @@ export default function About() {
       </section>
 
       {/* Section 3: Events */}
-      <section className="py-14">
-        <div className='container max-w-7xl mx-auto px-4'>
+      <section className="py-14 px-4 sm:px-6">
+        <div className='max-w-7xl mx-auto'>
           <h1
-            className='text-center text-5xl font-extrabold mb-12 text-[#0F3D3E]'
+            className='text-center text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10 text-[#0F3D3E]'
             data-aos="fade"
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
@@ -95,20 +96,21 @@ export default function About() {
 
           <div className='flex flex-col md:flex-row items-center gap-10'>
             <div
-              className='md:w-1/2 bg-gradient-to-br from-[#0F3D3E] to-[#14532d] p-8 rounded-3xl shadow-2xl'
+              className='w-full md:w-1/2 bg-gradient-to-br from-[#0F3D3E] to-[#14532d] p-6 md:p-8 rounded-3xl shadow-2xl'
               data-aos="fade-right"
             >
               <p
-                className='text-[20px] leading-relaxed text-[#E8F5E9]'
+                className='text-base sm:text-lg md:text-xl leading-relaxed text-[#E8F5E9]'
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sint quo voluptas, aliquid soluta expedita? Deserunt ipsa necessitatibus iusto? Exercitationem modi atque velit, accusantium corporis tempora rerum odit totam ratione?
-                Voluptatum dolor sed quidem, mollitia asperiores est cumque quis voluptatem sapiente cupiditate deserunt illum aspernatur eius, veritatis nobis architecto. Minima cum quo sapiente neque nobis ducimus debitis earum ab alias.
-                Nobis cupiditate aut accusantium, architecto, blanditiis fuga alias maxime dolor iure doloribus mollitia obcaecati corrupti dolore ex veniam dolores delectus repellendus, beatae quaerat hic. Corporis ab deleniti odit sequi veniam.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed sint quo voluptas,
+                aliquid soluta expedita? Deserunt ipsa necessitatibus iusto? Exercitationem modi
+                atque velit, accusantium corporis tempora rerum odit totam ratione?
               </p>
             </div>
-            <div className='md:w-1/2 flex justify-center' data-aos="fade-left">
-              <div className="w-[90%] h-[300px] bg-[#D1FAE5] rounded-3xl shadow-2xl flex items-center justify-center text-[#0F3D3E] text-2xl font-semibold">
+
+            <div className='w-full md:w-1/2 flex justify-center' data-aos="fade-left">
+              <div className="w-full max-w-md h-[250px] sm:h-[300px] bg-[#D1FAE5] rounded-3xl shadow-2xl flex items-center justify-center text-[#0F3D3E] text-xl sm:text-2xl font-semibold">
                 Image
               </div>
             </div>
@@ -117,7 +119,7 @@ export default function About() {
       </section>
 
       {/* Closing Message */}
-      <div className='text-center px-4 md:px-0 my-14 font-bold text-[22px] leading-relaxed text-[#0F3D3E]'>
+      <div className='text-center px-4 sm:px-6 my-14 font-bold text-lg sm:text-xl md:text-[22px] leading-relaxed text-[#0F3D3E]'>
         <h4 style={{ fontFamily: 'Playfair Display, serif' }}>
           Thank you for being part of <span className='text-emerald-700'>AM Store</span>.<br />
           We're committed to bringing you elegant fashion and unforgettable cultural experiences.

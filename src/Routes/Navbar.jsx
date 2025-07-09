@@ -114,14 +114,12 @@ export default function Navbar() {
         </div>
 
         <div className="flex flex-col gap-4 text-lg font-semibold font-poppins">
-          {loggedIn ? (
+          
             <>
               <Link to="/account" onClick={() => setSidebarOpen(false)} className="hover:text-[#FB6D6C]">
                 Account
               </Link>
-              <Link to="/history" onClick={() => setSidebarOpen(false)} className="hover:text-[#FB6D6C]">
-                Order History
-              </Link>
+              
               <Link to="/Cart" onClick={() => setSidebarOpen(false)} className="hover:text-[#FB6D6C]">
                 My Cart
               </Link>
@@ -130,7 +128,7 @@ export default function Navbar() {
                 Logout
               </button>
             </>
-          ) : (
+        
             <>
               <Link to="/login" onClick={() => setSidebarOpen(false)} className="hover:text-[#FB6D6C]">
                 Login
@@ -139,7 +137,7 @@ export default function Navbar() {
                 SignUp
               </Link>
             </>
-          )}
+        
         </div>
       </div>
     </>

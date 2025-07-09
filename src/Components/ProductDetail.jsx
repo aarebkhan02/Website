@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { IoCartSharp } from "react-icons/io5";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useCart } from "../Components/CartContext";
-
 import productsData from "../data/productData";
 
 export default function ProductDetailPage() {
@@ -44,8 +43,8 @@ export default function ProductDetailPage() {
     const colorImgs = selectedProduct.color_images?.[selectedProduct.variation_name] || [];
     const fallbackImgs = selectedProduct.images || [];
 
-    const allImages = [...colorImgs, ...fallbackImgs].filter((img, index, arr) =>
-      img && img.trim() !== "" && arr.indexOf(img) === index
+    const allImages = [...colorImgs, ...fallbackImgs].filter(
+      (img, index, arr) => img && img.trim() !== "" && arr.indexOf(img) === index
     );
 
     if (allImages.length > 0) setMainImage(allImages[0]);
@@ -61,7 +60,6 @@ export default function ProductDetailPage() {
       variation_name: selectedProduct.variation_name,
       image: mainImage,
     };
-
     addToCart(newItem);
     navigate("/cart");
   };
@@ -91,21 +89,24 @@ export default function ProductDetailPage() {
         onClick={onClick}
         onLoad={() => setLoaded(true)}
         onError={() => setLoaded(false)}
-        className={`w-24 h-24 object-cover rounded-xl border-2 cursor-pointer transition ${isActive ? "border-[#0F3D3E]" : "border-gray-300"
-          }`}
+        className={`w-20 h-20 object-cover rounded-xl border-2 cursor-pointer transition ${
+          isActive ? "border-[#0F3D3E]" : "border-gray-300"
+        }`}
       />
     );
   };
 
   return (
-    <div className="bg-[#F8F8F8] py-12 px-4 min-h-screen">
-      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl grid md:grid-cols-2 gap-10 p-10">
-        {/* Images */}
+    <div className="bg-[#F8F8F8] py-10 px-4 sm:px-6 lg:px-10 min-h-screen">
+      {/* Product Container */}
+      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl grid md:grid-cols-2 gap-10 p-6 sm:p-10">
+        {/* Left: Images */}
         <div className="flex flex-col items-center">
-          <div className="w-full h-[600px] bg-gray-100 rounded-2xl flex items-center justify-center">
+          <div className="w-full min-h-[300px] sm:h-[500px] lg:h-[600px] bg-gray-100 rounded-2xl flex items-center justify-center overflow-hidden">
             <img
               src={mainImage}
-              className="h-full w-full object-cover rounded-xl"
+              alt="Main"
+              className="w-full h-full object-contain sm:object-cover rounded-xl"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = "/placeholder.jpg";
@@ -113,8 +114,10 @@ export default function ProductDetailPage() {
             />
           </div>
 
+          {/* Thumbnails */}
           {(() => {
-            const colorImgs = selectedProduct.color_images?.[selectedProduct.variation_name] || [];
+            const colorImgs =
+              selectedProduct.color_images?.[selectedProduct.variation_name] || [];
             const fallbackImgs = selectedProduct.images || [];
 
             const allImages = [...colorImgs, ...fallbackImgs]
@@ -136,21 +139,18 @@ export default function ProductDetailPage() {
           })()}
         </div>
 
-        {/* Product Details */}
+        {/* Right: Product Info */}
         <div className="flex flex-col justify-start">
+          {/* Tags */}
           <div className="flex items-center gap-2 mb-2">
-            <span className="bg-black text-white text-xs px-3 py-1 rounded-full">
-              Sale!
-            </span>
-            <span className="bg-purple-500 text-white text-xs px-3 py-1 rounded-full">
-              New
-            </span>
+            <span className="bg-black text-white text-xs px-3 py-1 rounded-full">Sale!</span>
+            <span className="bg-purple-500 text-white text-xs px-3 py-1 rounded-full">New</span>
           </div>
 
-          <h1 className="text-3xl font-extrabold text-[#0F3D3E] mb-2">
+          {/* Title + Price */}
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F3D3E] mb-2">
             {selectedProduct.product_description}
           </h1>
-
           <p className="text-xl font-semibold text-[#0F3D3E] mb-4">
             ${parseFloat(selectedProduct.Reduced_price).toFixed(2)}
           </p>
@@ -159,9 +159,7 @@ export default function ProductDetailPage() {
           <div className="mb-4">
             <p className="font-medium text-[#0F3D3E] mb-2">
               Color:{" "}
-              <span className="text-sm text-gray-600">
-                {selectedProduct.variation_name}
-              </span>
+              <span className="text-sm text-gray-600">{selectedProduct.variation_name}</span>
             </p>
             <div className="flex items-center gap-3 flex-wrap">
               {selectedProduct.available_colors?.map((color) => {
@@ -171,13 +169,15 @@ export default function ProductDetailPage() {
                     key={color}
                     disabled={!isAvailable}
                     title={isAvailable ? color : `${color} (Out of Stock)`}
-                    className={`w-8 h-8 rounded-full border-2 ${selectedProduct.variation_name === color
+                    className={`w-8 h-8 rounded-full border-2 ${
+                      selectedProduct.variation_name === color
                         ? "border-[#0F3D3E]"
                         : "border-gray-300"
-                      } ${!isAvailable
+                    } ${
+                      !isAvailable
                         ? "opacity-30 cursor-not-allowed"
                         : "cursor-pointer hover:scale-110 transition"
-                      }`}
+                    }`}
                     style={{ backgroundColor: color.toLowerCase() }}
                     onClick={() => isAvailable && handleColorChange(color)}
                   />
@@ -194,10 +194,11 @@ export default function ProductDetailPage() {
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`border px-4 py-1.5 rounded-lg transition text-sm font-medium ${selectedSize === size
+                  className={`border px-4 py-1.5 rounded-lg transition text-sm font-medium ${
+                    selectedSize === size
                       ? "bg-[#0F3D3E] text-white"
                       : "hover:bg-[#0F3D3E] hover:text-white"
-                    }`}
+                  }`}
                 >
                   {size}
                 </button>
@@ -207,22 +208,21 @@ export default function ProductDetailPage() {
 
           {/* Stock Status */}
           <p
-            className={`text-md font-medium mb-4 ${selectedProduct.stock === "Out of Stock"
-                ? "text-red-600"
-                : "text-green-600"
-              }`}
+            className={`text-md font-medium mb-4 ${
+              selectedProduct.stock === "Out of Stock" ? "text-red-600" : "text-green-600"
+            }`}
           >
             {selectedProduct.stock}
           </p>
 
-          {/* Product Description */}
+          {/* Description */}
           <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            similique repudiandae est.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis similique
+            repudiandae est.
           </p>
 
-          {/* Quantity and Cart */}
-          <div className="flex items-center gap-6 mb-6">
+          {/* Quantity + Add to Cart */}
+          <div className="flex flex-wrap items-center gap-6 mb-6">
             <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
               <button
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -230,7 +230,7 @@ export default function ProductDetailPage() {
               >
                 −
               </button>
-              <span className="w-10 text-center py-1 border-x border-gray-300">
+              <span className="w-10 text-center py-1 border-x border-gray-300 text-sm sm:text-base">
                 {quantity}
               </span>
               <button
@@ -243,7 +243,7 @@ export default function ProductDetailPage() {
 
             <button
               onClick={handleAddToCart}
-              className="bg-black text-white min-w-[200px] px-6 py-2 rounded-xl hover:brightness-110 flex items-center justify-center gap-2"
+              className="bg-black text-white px-6 py-2 rounded-xl hover:brightness-110 flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <IoCartSharp /> Add To Cart
             </button>
@@ -258,9 +258,7 @@ export default function ProductDetailPage() {
           {/* Specifications */}
           {selectedProduct.specifications && (
             <div className="text-sm text-gray-600 border-t pt-4">
-              <h3 className="text-md font-semibold text-[#0F3D3E] mb-2">
-                Product Details:
-              </h3>
+              <h3 className="text-md font-semibold text-[#0F3D3E] mb-2">Product Details:</h3>
               {Object.entries(selectedProduct.specifications).map(([key, value]) => (
                 <p key={key}>
                   <strong>{key}:</strong> {value}
@@ -272,11 +270,9 @@ export default function ProductDetailPage() {
       </div>
 
       {/* Related Products */}
-      <div className="max-w-6xl mx-auto mt-16 px-4">
-        <h2 className="text-3xl font-bold mb-8 text-[#0F3D3E]">
-          Related Products
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto mt-16 px-4 sm:px-6 lg:px-10">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-[#0F3D3E]">Related Products</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {relatedProducts.map((product) => (
             <div
               key={product.product_id}
@@ -295,18 +291,13 @@ export default function ProductDetailPage() {
                 <h3 className="text-xl font-bold text-[#0F3D3E] mb-2">
                   {product.product_description}
                 </h3>
-                <p className="text-sm text-[#14532d] mb-1">
-                  {product.category_name}
-                </p>
-                <p className="text-sm text-[#14532d] mb-2">
-                  {product.sub_category_name}
-                </p>
+                <p className="text-sm text-[#14532d] mb-1">{product.category_name}</p>
+                <p className="text-sm text-[#14532d] mb-2">{product.sub_category_name}</p>
                 <p className="text-sm text-green-700 mb-4">{product.stock}</p>
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold text-[#14532d]">
                     ${parseFloat(product.Reduced_price).toFixed(2)}
                   </span>
-
                   <button
                     onClick={() =>
                       navigate(`/product/${product.product_id}`, {
