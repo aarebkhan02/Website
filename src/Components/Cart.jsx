@@ -4,8 +4,7 @@ import { useCart } from "../Components/CartContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
-const { cartItems, removeFromCart, updateQuantity } = useCart();
-
+  const { cartItems, removeFromCart, updateQuantity } = useCart();
   const navigate = useNavigate();
 
   const formatCurrency = (amount) =>
@@ -13,9 +12,6 @@ const { cartItems, removeFromCart, updateQuantity } = useCart();
       style: "currency",
       currency: "USD",
     });
-
-  
-
 
   const getTotal = () =>
     cartItems.reduce(
@@ -28,19 +24,21 @@ const { cartItems, removeFromCart, updateQuantity } = useCart();
   };
 
   return (
-    <div className="bg-[#f9f9f9] min-h-screen py-12 px-4 text-[#14532d]">
+    <div className="bg-[#f9f9f9] min-h-screen py-10 px-4 sm:px-6 lg:px-8 text-[#14532d]">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-10">MY BASKET</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-10">
+          MY BASKET
+        </h1>
 
         {cartItems.length === 0 ? (
           <div className="text-center text-gray-500 text-lg">
             Your cart is empty.
           </div>
         ) : (
-          <div className="flex flex-col lg:flex-row gap-10">
+          <div className="flex flex-col lg:flex-row gap-8">
             {/* Cart Items */}
-            <div className="bg-white flex-1 rounded-3xl shadow-xl p-6">
-              <div className="grid grid-cols-5 gap-4 text-sm font-semibold border-b pb-4 text-gray-500 uppercase">
+            <div className="bg-white flex-1 rounded-3xl shadow-md p-4 sm:p-6">
+              <div className="hidden sm:grid grid-cols-5 gap-4 text-sm font-semibold border-b pb-4 text-gray-500 uppercase">
                 <div className="col-span-2">Product</div>
                 <div>Price</div>
                 <div>Piece</div>
@@ -50,49 +48,53 @@ const { cartItems, removeFromCart, updateQuantity } = useCart();
               {cartItems.map((item, index) => (
                 <div
                   key={index}
-                  className="grid grid-cols-5 gap-4 items-center py-6 border-b"
+                  className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center py-5 border-b"
                 >
-                  <div className="col-span-2 flex gap-4 items-center">
+                  <div className="col-span-2 flex items-center gap-4">
                     <button
                       onClick={() => removeFromCart(index)}
-                      className="text-gray-400 hover:text-red-600 text-lg"
+                      className="text-gray-400 hover:text-red-600 text-xl"
                     >
                       <IoTrashBinSharp />
                     </button>
                     <img
                       src={item.image}
                       alt={item.product_description}
-                      className="w-20 h-20 rounded-lg border object-cover"
+                      className="w-20 h-20 rounded-xl border object-cover"
                     />
                     <div>
-                      <p className="font-semibold">{item.product_description}</p>
-                      <p className="text-xs text-gray-500">
-                        Size: {item.selectedSize}, Color: {item.variation_name}
+                      <p className="font-semibold text-sm sm:text-base">
+                        {item.product_description}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Size: {item.selectedSize} | Color: {item.variation_name}
                       </p>
                     </div>
                   </div>
 
-                  <div className="font-semibold">
+                  <div className="font-semibold text-sm sm:text-base">
                     {formatCurrency(parseFloat(item.Reduced_price))}
                   </div>
 
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => updateQuantity(index, -1)}
-                      className="px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
+                      className="px-2 py-1 bg-gray-100 rounded hover:bg-gray-200 text-lg"
                     >
                       −
                     </button>
-                    <span>{item.quantity}</span>
+                    <span className="min-w-[20px] text-center">
+                      {item.quantity}
+                    </span>
                     <button
                       onClick={() => updateQuantity(index, 1)}
-                      className="px-2 py-1 bg-gray-100 rounded hover:bg-gray-200"
+                      className="px-2 py-1 bg-gray-100 rounded hover:bg-gray-200 text-lg"
                     >
                       +
                     </button>
                   </div>
 
-                  <div className="font-semibold text-[#166534]">
+                  <div className="font-semibold text-[#166534] text-sm sm:text-base">
                     {formatCurrency(
                       item.quantity * parseFloat(item.Reduced_price)
                     )}
@@ -102,10 +104,12 @@ const { cartItems, removeFromCart, updateQuantity } = useCart();
             </div>
 
             {/* Totals Summary */}
-            <div className="bg-white w-full lg:w-1/3 rounded-3xl shadow-xl p-6 h-fit">
-              <h2 className="text-lg font-bold mb-4">Basket Totals</h2>
+            <div className="bg-white w-full lg:w-1/3 rounded-3xl shadow-md p-6 h-fit">
+              <h2 className="text-lg sm:text-xl font-bold mb-4">
+                Basket Totals
+              </h2>
 
-              <div className="space-y-3 text-sm">
+              <div className="space-y-3 text-sm sm:text-base">
                 <div className="flex justify-between border-b pb-2">
                   <span>Subtotal</span>
                   <span>{formatCurrency(getTotal())}</span>
@@ -122,7 +126,7 @@ const { cartItems, removeFromCart, updateQuantity } = useCart();
 
               <button
                 onClick={goToPayment}
-                className="w-full bg-[#166534] mt-6 text-white py-3 rounded-xl text-sm font-semibold hover:bg-green-800"
+                className="w-full bg-[#166534] mt-6 text-white py-3 rounded-xl text-sm font-semibold hover:bg-green-800 transition"
               >
                 GO TO PAYMENT PAGE
               </button>

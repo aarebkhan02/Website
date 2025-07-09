@@ -123,6 +123,9 @@ export default function Navbar() {
               <Link to="/Cart" onClick={() => setSidebarOpen(false)} className="hover:text-[#FB6D6C]">
                 My Cart
               </Link>
+               <Link to="/notfound" onClick={() => setSidebarOpen(false)} className="hover:text-[#FB6D6C]">
+                NotFound
+              </Link>
               <hr className="border-gray-400" />
               <button onClick={handleDummyLogout} className="text-left hover:text-[#FB6D6C] focus:outline-none">
                 Logout
