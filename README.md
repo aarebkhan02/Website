@@ -1,12 +1,39 @@
-# React + Vite
+# GreenReact UI – Ecommerce Starter Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, professionally designed React + Tailwind CSS UI template – ideal for modern eCommerce frontends, product catalogs, and storefronts. Built using Vite for blazing-fast dev and clean code.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Features
 
-## Expanding the ESLint configuration
+- ⚛️ React + Vite-powered frontend
+- 💨 Tailwind CSS styling
+- 🛒 Product listing, detail, cart, and order flow
+- 👤 Account and address pages
+- 🔐 Login / Signup UIs
+- 🎨 Custom 404 page with illustration
+- 📱 Fully responsive layout
+- 📁 Organized file structure
+- ⚠️ Frontend-only (no backend/auth API included)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📁 Folder Structure
+
+Template/
+├── public/                      # images, illustrations (404, product, etc.)
+├── src/
+│   ├── Components/              # UI components (Login, Signup, Cart, ProductDetail, etc.)
+│   ├── Routes/                  # Route layout components (Navbar, Footer, Layout)
+│   ├── data/                    # Product data (JSX format)
+│   ├── App.jsx                  # Main App component with routes
+│   ├── index.css                # Tailwind entry CSS
+│   └── main.jsx                 # React entry point
+├── tailwind.config.js           # Tailwind setup (colors, fonts)
+├── postcss.config.js            # Tailwind + autoprefixer plugins
+├── vite.config.js               # Vite project config
+├── package.json                 # Dependencies and scripts
+├── package-lock.json            # Lock file
+├── index.html                   # App entry HTML
+├── README.md                    # Developer-focused README (already generated)
+

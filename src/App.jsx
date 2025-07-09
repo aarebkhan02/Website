@@ -11,6 +11,7 @@ import ProductDetail from './Components/ProductDetail';
 import OrderPage from './Components/OrderPage';
 import Cart from './Components/Cart';
 import AccountPage from './Components/AccountPage';
+import NotFound from './Components/NotFound';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/order" element={<OrderPage />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/account" element={<AccountPage />} />
+             <Route path="/notfound" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
